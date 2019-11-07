@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from 'react';
 const CountContext = createContext()
 
 function init(initialCount) {
-    return {count: 0};
+    return {count: initialCount};
   }
   
   function reducer(state, action) {
@@ -20,7 +20,7 @@ function init(initialCount) {
   }
   
   function Counter({initialCount}) {
-    const [state, dispatch] = useReducer(reducer, initialCount, init);
+    const [state, dispatch] = useReducer(reducer, 888, init);
     console.log(state);
     
     return (
