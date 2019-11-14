@@ -40,6 +40,10 @@ const menuList = [
         ]
     },
     {
+        title: '黑客帝国',
+        key: '/admin/hacker'
+    },
+    {
         title: '权限设置',
         key: '/admin/permission'
     },
