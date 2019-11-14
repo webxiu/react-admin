@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
+import './index.css';
 // import App from './App';
 // import Home from "./pages/router_demo/route1/Home";// 路由分发页面
 // import Router from "./pages/router_demo/route2/router";// 路由分发页面
-import Router from "./pages/router_demo/route3/router";// 路由分发页面
+import Router from "./router"
 
 import * as serviceWorker from './serviceWorker';
 

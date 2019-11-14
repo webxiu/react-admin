@@ -12,10 +12,10 @@ export default class Admin extends Component {
                 <Col span={4} className="nav-left">
                     <NavLeft />
                 </Col>
-                <Col span={20} className="main" style={{height:'100vh'}}>
+                <Col span={20} className="main">
                     <Header></Header>
                     <Row className="content">
-                        <Button type="primary">77777</Button>
+                        {this.props.children}
                     </Row>
                     <Footer></Footer>
                 </Col>

@@ -10,8 +10,7 @@ export default class NavLeft extends Component {
     componentWillMount() {
         const menuTreeNode = this.renderMenu(MenuConfig)
         this.setState({
-            menuTreeNode,
-            collapsed: false,
+            menuTreeNode
         })
     }
     // 菜单渲染
@@ -25,25 +24,21 @@ export default class NavLeft extends Component {
                             <span>{item.title}</span>
                         </span>
                     }>
-                        {this.renderMenu(item.children)}
+                        { this.renderMenu(item.children) }
                     </SubMenu>
                 )
             }
             return <Menu.Item title={item.title} key={item.key}>
                 <NavLink to={item.key}>
                     <Icon type={item.icon} />
-                    <span> {item.title}</span>
+                    <span> {item.title}</span>  
                 </NavLink>
             </Menu.Item>
         })
     }
+    handleClick = () => {
 
-    toggleCollapsed = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    };
-
+    }
     render() {
         return (
             <div>
@@ -51,14 +46,8 @@ export default class NavLeft extends Component {
                     <img src="/assets/logo.svg" alt="" />
                     <h1>Admin System</h1>
                 </div>
-                <Menu
-                    defaultSelectedKeys={['/admin/setting/card']}
-                    defaultOpenKeys={['/admin/setting']}
-                    mode="inline"
-                    theme="dark"
-                    inlineCollapsed={this.state.collapsed}
-                >
-                    {this.state.menuTreeNode}
+                <Menu onClick={this.handleClick} mode="vertical" theme="dark">
+                    { this.state.menuTreeNode }
                 </Menu>
             </div>
         )

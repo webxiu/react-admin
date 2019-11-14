@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "../../axios";
+import "./index.css";
 export default class Header extends Component {
     componentDidMount(){
         this.getData()
@@ -18,8 +19,9 @@ export default class Header extends Component {
     }
     render() {
         return (
-            <div>
-                Header
+            <div className="header-box">
+                <div className="header-left">首页 / 系统设置</div>
+                <div className="header-right">欢迎您, <span>admin</span></div>
             </div>
         )
     }

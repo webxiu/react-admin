@@ -1,6 +1,10 @@
 
 @import '~antd/dist/antd.css';
 
-/* .App {
-  text-align: left;
-} */
+.main{
+  background: #fff;
+}
+.content{
+  position: relative;
+  height: calc(100vh - 39px - 60px);
+}

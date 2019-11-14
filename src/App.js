@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './App.css';
-import Admin from "./Admin";
-
-function App() {
-  return (
-    <div className="App">
-      <Admin></Admin>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        {this.props.children}
+      </div>
+    )
+  }
 }
-export default App;
+
+// import React from 'react'
+// import './App.css';
+// function App() {
+//   return (
+//     <div className="App">
+//       {this.props.children}
+//     </div>
+//   );
+// }
+// export default App;

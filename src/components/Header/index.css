@@ -1,0 +1,13 @@
+.header-box{
+    line-height: 38px;
+    padding: 0 15px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+.header-box .header-left{
+    text-align: left;
+}
+.header-box .header-right{
+    text-align: right;
+}
