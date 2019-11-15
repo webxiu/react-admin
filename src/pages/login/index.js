@@ -51,22 +51,16 @@ class Login extends Component {
                 sm: 20
             }
         }
-        const offsetLayout = {
-            // labelCol: {
-            //     xs: 24,
-            //     sm: {
-            //         span: 12,
-            //         offset:4
-            //     }
-            // },
-            wrapperCol: {
-                xs: 24,
-                sm: {
-                    span: 12,
-                    offset:4
-                }
-            }
-        }
+        // 表单内容偏移
+        // const offsetLayout = {
+        //     wrapperCol: {
+        //         xs: 24,
+        //         sm: {
+        //             span: 12,
+        //             offset:4
+        //         }
+        //     }
+        // }
 
         return (
             <div>

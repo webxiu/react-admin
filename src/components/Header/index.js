@@ -6,7 +6,7 @@ export default class Header extends Component {
         this.getData()
     }
     getData(){
-        const url = 'http://t.yushu.im/v2/movie/top250';
+        const url = 'https://enigmatic-island-47099.herokuapp.com/api/profiles/homepage';
         axios.jsonp({
             url:url
         }).then(res => {
