@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { HashRouter, Route, Switch } from "react-router-dom";
 import App from "./App";
 import Login from "./pages/login";
-import Admin from "./admin"
+import Admin from "./Admin"
 import Home from "./pages/home"
 import Button from "./pages/ui/button"
+import Banner from "./pages/ui/banner"
 import Hacker from "./pages/hacker"
+import Table from "./pages/table"
 import Nomatch from "./pages/nomatch"
 
 export default class IRouter extends Component {
@@ -20,7 +22,9 @@ export default class IRouter extends Component {
                                 {/* <Route path="/admin/ui/:id" component={Button} /> */}
                                 <Route path="/admin/home" component={Home} />
                                 <Route path="/admin/ui/button" component={Button} />
+                                <Route path="/admin/ui/banner" component={Banner} />
                                 <Route path="/admin/hacker" component={Hacker} />
+                                <Route path="/admin/table" component={Table} />
                                 <Route component={Nomatch} />
                             </Switch>
                         </Admin>

@@ -15,8 +15,8 @@ const menuList = [
                 icon: 'appstore'
             },
             {
-                title: '弹窗',
-                key: '/admin/ui/modal',
+                title: '轮播',
+                key: '/admin/ui/banner',
                 icon: 'desktop'
             },
             {
@@ -41,16 +41,17 @@ const menuList = [
                 key: '/admin/setting/card',
                 icon: 'desktop'
             },
-            {
-                title: 'table',
-                key: '/admin/setting/table',
-                icon: 'mail'
-            },
+           
         ]
     },
     {
         title: '黑客帝国',
         key: '/admin/hacker',
+        icon: 'mail'
+    },
+    {
+        title: '表格数据',
+        key: '/admin/table',
         icon: 'mail'
     },
     {
