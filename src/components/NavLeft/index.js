@@ -46,7 +46,7 @@ export default class NavLeft extends Component {
 
     render() {
         return (
-            <div>
+            <div className="left-slide">
                 <div className="logo">
                     <img src="/assets/logo.svg" alt="" />
                     <h1>Admin System</h1>

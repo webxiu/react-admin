@@ -12,7 +12,7 @@ export default class Admin extends Component {
                 <Col span={4} className="nav-left">
                     <NavLeft />
                 </Col>
-                <Col span={20} className="main">
+                <Col span={20} offset={4} className="main">
                     <Header></Header>
                     <Row className="content">
                         {this.props.children}
