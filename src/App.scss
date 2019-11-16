@@ -17,10 +17,11 @@
 
   .main {
     background: #fff;
-
+    overflow: auto;
     .content {
       min-height: calc(100vh - 39px);
       height: calc(100% - 39px);
+      padding: 15px;
     }
   }
 }

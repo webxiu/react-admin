@@ -4,6 +4,8 @@
     border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
+    z-index: 111;
+    background: #fff;
 }
 .header-box .header-left{
     text-align: left;
