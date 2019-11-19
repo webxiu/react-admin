@@ -13,6 +13,7 @@ export default class Hacker extends Component {
         const bgColor = 'rgba(0, 0, 0, .1)';
         const columns = w / fontSize
         const dropUnits = [];
+        // 初始化y轴坐标
         wordsArr.forEach((item, i) => { dropUnits[i] = 1 })
 
         // context.fillStyle = textColor
@@ -36,11 +37,11 @@ export default class Hacker extends Component {
         (function frame() {
             window.requestAnimationFrame(frame)
             // context.clearRect(0, 0, w, h);
+            // 在绘制下一帧的文字之前给画布填充背景色
             context.fillStyle = bgColor;
             context.fillRect(0, 0, w, h);
             draw()
         }())
-        console.log(665, dropUnits);
     }
     render() {
         return (

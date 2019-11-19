@@ -32,8 +32,8 @@ const menuList = [
         icon: 'mail',
         children: [
             {
-                title: '表单',
-                key: '/admin/setting/form',
+                title: '添加用户',
+                key: '/admin/setting/add',
                 icon: 'mail'
             },
             {
@@ -53,6 +53,11 @@ const menuList = [
         title: '表格数据',
         key: '/admin/table',
         icon: 'mail'
+    },
+    {
+        title: '表单数据',
+        key: '/admin/form',
+        icon: 'inbox'
     },
     {
         title: '权限设置',
