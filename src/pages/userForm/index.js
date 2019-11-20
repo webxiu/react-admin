@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Icon } from "antd";
 import BaseForm from "../../components/common/BaseForm";
 
 export default class Form extends Component {
@@ -10,42 +11,43 @@ export default class Form extends Component {
         page: 1
     }
     formData = {
-        formConfig:{
-            layout: 'horizontal',//'horizontal'|'vertical'|'inline', inline会默认添加冒号
+        formConfig: {
+            layout: 'inline',//'horizontal'|'vertical'|'inline', inline会默认添加冒号
             hideRequiredMark: true,//是否隐藏*号
             labelAlign: 'left',//'left' | 'right'
-            colon:false, // 添加标题的冒号,只有在horizontal下生效
+            colon: false, // 添加标题的冒号,只有在horizontal下生效
         },
         formList: [
-            {
+            {// 输入框
                 type: 'INPUT',
                 label: '用户名',
                 field: 'username',
-                initialValue: '',
+                initialValue: '默认值哦~~~',
                 width: 200,
                 allowClear: true,
                 placeholder: '请输入内容222',
                 rules: [{ required: true, message: '请输入用户名!' }],
             },
-            {
+            {// 下拉框
                 type: 'SELECT',
                 label: '操作类型',
                 field: 'status',
-                initialValue: '',
+                initialValue: 3,
                 placeholder: '请选择类型3333',
                 width: 200,
                 list: [
                     { value: 0, name: '全部' },
                     { value: 1, name: '未处理' },
-                    { value: 2, name: '已处理' }
+                    { value: 2, name: '已处理' },
+                    { value: 3, name: '已成功' }
                 ],
                 rules: [{ required: true, message: '请输入用户名!' }],
             },
-            {
+            {// 多选框
                 type: 'CHECKBOX',
                 label: '操作类型',
                 field: 'instrest',
-                initialValue: ['0','2'],
+                initialValue: ['0', '2'],
                 width: 200,
                 list: [
                     { value: '0', name: '唱歌' },
@@ -54,7 +56,7 @@ export default class Form extends Component {
                 ],
                 rules: [{ required: true, message: '请选择兴趣' }]
             },
-            {
+            {// 单选框
                 type: 'RADIO',
                 label: '性别',
                 field: 'sex',
@@ -68,7 +70,17 @@ export default class Form extends Component {
                 ],
                 rules: [{ required: true, message: '请选择性别!' }]
             },
-            {
+            {// 开关
+                type: 'SWITCH',
+                label: '是否启用',
+                field: 'switch',
+                initialValue: true,
+                checkedChildren: '开启',
+                unCheckedChildren: '关闭',
+                // unCheckedChildren: <Icon type="close" />,
+                width: 200,
+            },
+            {// 日期框
                 type: 'RANGEPICKER',
                 label: '查询日期',
                 field: 'date',
@@ -78,7 +90,7 @@ export default class Form extends Component {
                 initialValue: ['2019-11-19', '2019-11-20'],
                 rules: [{ type: 'array', required: true, message: '请选择时间' }],
             },
-            {
+            {// 文本框
                 type: 'TEXTAREA',
                 label: '发布文章',
                 field: 'content',
@@ -86,7 +98,7 @@ export default class Form extends Component {
                 initialValue: '我是默认值...',
                 width: 280,
                 placeholder: '请输入内容96',
-                autoSize:{ minRows: 2, maxRows: 26 },
+                autoSize: { minRows: 2, maxRows: 26 },
                 rules: [{ required: true, message: '请输入文章' }],
             },
             {
@@ -101,7 +113,7 @@ export default class Form extends Component {
                 accept: '.jpg,.png,.gif.doc.exe',//.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
                 listType: 'picture',//列表的内建样式 text, picture picture-card
                 width: 280,
-                rules: [{ required: true, message: '请选择文件...' }],
+                rules: [{ required: false, message: '请选择文件...' }],
             },
             {
                 // 拖动 + 点击上传
@@ -115,7 +127,7 @@ export default class Form extends Component {
                 accept: '.jpg,.png,.gif.doc.exe',//.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
                 listType: 'picture',//列表的内建样式 text, picture picture-card
                 width: 280,
-                rules: [{ required: true, message: '请选择文件...' }],
+                rules: [{ required: false, message: '请选择文件...' }],
             }
         ]
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Select, Form, Button, Checkbox, DatePicker, Radio, Upload, Icon } from "antd";
+import { Input, Select, Form, Button, Checkbox, DatePicker, Radio, Switch, Upload, Icon } from "antd";
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
@@ -33,6 +33,8 @@ class BaseForm extends Component {
                 let allowClear = item.allowClear
                 let dateFormat = item.dateFormat
                 let autoSize = item.autoSize
+                let checkedChildren = item.checkedChildren
+                let unCheckedChildren = item.unCheckedChildren
                 // 上传
                 let extra = item.extra
                 let action = item.action
@@ -40,6 +42,9 @@ class BaseForm extends Component {
                 let listType = item.listType
                 let uploadTitle = item.uploadTitle
                 let multiple = item.multiple
+
+
+                
 
 
                 if (item.type === 'INPUT') {
@@ -63,7 +68,7 @@ class BaseForm extends Component {
                     const SELECT = <FormItem label={label} key={field}>
                         {
                             getFieldDecorator([field], {
-                                // initialValue: initialValue,
+                                initialValue: initialValue,
                                 rules: rules
                             })(
                                 <Select
@@ -95,8 +100,9 @@ class BaseForm extends Component {
                     formItemList.push(CHECKBOX)
 
                 } else if (item.type === 'RADIO') {
-                    const RADIO = <Form.Item label={label} key={field}>
+                    const RADIO = <FormItem label={label} key={field}>
                         {getFieldDecorator([field], {
+                            valuePropName: 'checked',
                             initialValue: initialValue,
                             rules: rules
                         })(
@@ -106,8 +112,22 @@ class BaseForm extends Component {
                                 {this.getRadioGroup(item.list)}
                             </RadioGroup>
                         )}
-                    </Form.Item>
+                    </FormItem>
                     formItemList.push(RADIO)
+
+                } else if (item.type === 'SWITCH') {
+                    const SWITCH = <FormItem label={label} key={field}>
+                        {getFieldDecorator([field], {
+                            valuePropName: 'checked',
+                            initialValue: initialValue,
+                        })(
+                            <Switch
+                                checkedChildren={checkedChildren}
+                                unCheckedChildren={unCheckedChildren}
+                            />
+                        )}
+                    </FormItem>
+                    formItemList.push(SWITCH)
 
                 } else if (item.type === 'RANGEPICKER') {
                     const RANGEPICKER = <FormItem label={label} key={field}>
