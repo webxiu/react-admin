@@ -1,47 +1,44 @@
-/**
- * 路由表, 都去掉了/admin路由, 如首页: /admin/home ...
- */
 const menuList = [
     {
         title: '首页',
-        key: '/home',
+        key: '/admin/home',
         icon: 'desktop'
     },
     {
         title: 'UI',
-        key: '/ui',
+        key: '/admin/ui',
         icon: 'pie-chart',
         children: [
             {
                 title: '按钮',
-                key: '/ui/button',
+                key: '/admin/ui/button',
                 icon: 'appstore'
             },
             {
                 title: '轮播',
-                key: '/ui/banner',
+                key: '/admin/ui/banner',
                 icon: 'desktop'
             },
             {
                 title: 'Loading',
-                key: '/ui/loading',
+                key: '/admin/ui/loading',
                 icon: 'appstore'
             },
         ]
     },
     {
         title: '系统设置',
-        key: '/setting',
+        key: '/admin/setting',
         icon: 'mail',
         children: [
             {
                 title: '添加用户',
-                key: '/setting/add',
+                key: '/admin/setting/add',
                 icon: 'mail'
             },
             {
                 title: '面板',
-                key: '/setting/card',
+                key: '/admin/setting/card',
                 icon: 'desktop'
             },
            
@@ -49,27 +46,27 @@ const menuList = [
     },
     {
         title: '黑客帝国',
-        key: '/hacker',
+        key: '/admin/hacker',
         icon: 'mail'
     },
     {
         title: '表格数据',
-        key: '/table',
+        key: '/admin/table',
         icon: 'mail'
     },
     {
         title: '表单数据',
-        key: '/form',
+        key: '/admin/form',
         icon: 'inbox'
     },
     {
         title: '权限设置',
-        key: '/permission',
+        key: '/admin/permission',
         icon: 'inbox'
     },
     {
         title: '消息列表',
-        key: '/notice',
+        key: '/admin/notice',
         icon: 'desktop'
     },
 

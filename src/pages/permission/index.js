@@ -6,10 +6,10 @@ export default class Permission extends Component {
     state = {
         // 请求获取到的权限 与 提交权限数据
         checkedKeys: [
-            "/admin/setting",
-            "/admin/setting/add",
-            "/admin/setting/card",
-            "/admin/form"
+            "/setting",
+            "/setting/add",
+            "/setting/card",
+            "/form"
         ]
     }
     // 遍历树节点方法
