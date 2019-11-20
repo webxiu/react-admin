@@ -22,28 +22,6 @@ class BaseForm extends Component {
 
         if (formList && formList.length > 0) {
             formList.forEach((item, i) => {
-                let label = item.label
-                // let field = item.field
-                let initialValue = item.initialValue
-                let placeholder = item.placeholder
-                let width = item.width
-                let rules = item.rules
-                let allowClear = item.allowClear
-                let dateFormat = item.dateFormat
-                let autoSize = item.autoSize
-                let checkedChildren = item.checkedChildren
-                let unCheckedChildren = item.unCheckedChildren
-                // 上传
-                let extra = item.extra
-                let action = item.action
-                let accept = item.accept
-                let listType = item.listType
-                // let uploadTitle = item.uploadTitle
-                let multiple = item.multiple
-
-
-
-
                 // 重构
                 let field = item.field
                 let itemConfig = item.itemConfig

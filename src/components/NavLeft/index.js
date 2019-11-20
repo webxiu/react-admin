@@ -52,8 +52,8 @@ export default class NavLeft extends Component {
                     <h1>Admin System</h1>
                 </div>
                 <Menu
-                    defaultSelectedKeys={['/admin/setting/card']}
-                    defaultOpenKeys={['/admin/setting']}
+                    // defaultSelectedKeys={['/admin/setting/card']}
+                    // defaultOpenKeys={['/admin/setting']}
                     mode="inline"
                     theme="dark"
                     inlineCollapsed={this.state.collapsed}

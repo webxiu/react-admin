@@ -79,7 +79,8 @@ export default class Form extends Component {
                 },
                 fieldCheck: {
                     valuePropName: 'checked',
-                    initialValue: ['0', '2'],
+                    // initialValue: ['0', '2'],
+                    initialValue: [],
                     rules: [{ required: true, message: '请选择兴趣' }]
                 },
                 propsConfig: {
@@ -100,7 +101,8 @@ export default class Form extends Component {
                 },
                 fieldCheck: {
                     valuePropName: 'checked',
-                    initialValue: 1,
+                    initialValue: '',
+                    // initialValue: 1,
                     rules: [{ required: true, message: '请选择性别' }]
                 },
                 propsConfig: {
