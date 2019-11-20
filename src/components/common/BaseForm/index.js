@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Input, Select, Form, Button, Checkbox, DatePicker, Radio, Switch, Upload, Icon } from "antd";
-import moment from 'moment';
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+
 const FormItem = Form.Item
 const Option = Select.Option
 const CheckboxGroup = Checkbox.Group
@@ -25,7 +23,7 @@ class BaseForm extends Component {
         if (formList && formList.length > 0) {
             formList.forEach((item, i) => {
                 let label = item.label
-                let field = item.field
+                // let field = item.field
                 let initialValue = item.initialValue
                 let placeholder = item.placeholder
                 let width = item.width
@@ -40,75 +38,51 @@ class BaseForm extends Component {
                 let action = item.action
                 let accept = item.accept
                 let listType = item.listType
-                let uploadTitle = item.uploadTitle
+                // let uploadTitle = item.uploadTitle
                 let multiple = item.multiple
 
 
-                
 
+
+                // 重构
+                let field = item.field
+                let itemConfig = item.itemConfig
+                let fieldCheck = item.fieldCheck
+                let propsConfig = item.propsConfig
+                // 上传
+                let uploadTitle = item.uploadTitle
+                let uploadDesc = item.uploadDesc
 
                 if (item.type === 'INPUT') {
-                    const INPUT = <FormItem label={label} key={field}>
-                        {
-                            getFieldDecorator([field], {
-                                initialValue: initialValue,
-                                rules: rules,
-                            })(
-                                <Input
-                                    type="text"
-                                    style={{ width: width }}
-                                    placeholder={placeholder}
-                                    allowClear={allowClear}
-                                />
-                            )
-                        }
+                    const INPUT = <FormItem {...itemConfig}>
+                        {getFieldDecorator([field], { ...fieldCheck })(
+                            <Input {...propsConfig} />
+                        )}
                     </FormItem>
                     formItemList.push(INPUT)
                 } else if (item.type === 'SELECT') {
-                    const SELECT = <FormItem label={label} key={field}>
-                        {
-                            getFieldDecorator([field], {
-                                initialValue: initialValue,
-                                rules: rules
-                            })(
-                                <Select
-                                    style={{ width: width }}
-                                    placeholder={placeholder}
-                                >
-                                    {this.getSelectList(item.list)}
-                                </Select>
-                            )
-                        }
+                    const SELECT = <FormItem {...itemConfig}>
+                        {getFieldDecorator([field], { ...fieldCheck })(
+                            <Select {...propsConfig}>
+                                {this.getSelectList(item.list)}
+                            </Select>
+                        )}
                     </FormItem>
                     formItemList.push(SELECT)
                 } else if (item.type === 'CHECKBOX') {
-                    const CHECKBOX = <FormItem label={label} key={field}>
-                        {
-                            getFieldDecorator([field], {
-                                // valuePropName: 'checked',
-                                initialValue: initialValue,// 必须是true/false
-                                rules: rules
-                            })(
-                                <CheckboxGroup
-                                    style={{ width: width }}
-                                >
-                                    {this.getCheckboxGroup(item.list)}
-                                </CheckboxGroup>
-                            )
-                        }
+                    const CHECKBOX = <FormItem {...itemConfig}>
+                        {getFieldDecorator([field], { ...fieldCheck })(
+                            <CheckboxGroup {...propsConfig}>
+                                {this.getCheckboxGroup(item.list)}
+                            </CheckboxGroup>
+                        )}
                     </FormItem>
                     formItemList.push(CHECKBOX)
 
                 } else if (item.type === 'RADIO') {
-                    const RADIO = <FormItem label={label} key={field}>
-                        {getFieldDecorator([field], {
-                            valuePropName: 'checked',
-                            initialValue: initialValue,
-                            rules: rules
-                        })(
-                            <RadioGroup
-                                style={{ width: width }}
-                            >
+                    const RADIO = <FormItem {...itemConfig}>
+                        {getFieldDecorator([field], { ...fieldCheck })(
+                            <RadioGroup {...propsConfig}>
                                 {this.getRadioGroup(item.list)}
                             </RadioGroup>
                         )}
@@ -116,62 +90,31 @@ class BaseForm extends Component {
                     formItemList.push(RADIO)
 
                 } else if (item.type === 'SWITCH') {
-                    const SWITCH = <FormItem label={label} key={field}>
-                        {getFieldDecorator([field], {
-                            valuePropName: 'checked',
-                            initialValue: initialValue,
-                        })(
-                            <Switch
-                                checkedChildren={checkedChildren}
-                                unCheckedChildren={unCheckedChildren}
-                            />
+                    const SWITCH = <FormItem {...itemConfig}>
+                        {getFieldDecorator([field], { ...fieldCheck })(
+                            <Switch {...propsConfig} />
                         )}
                     </FormItem>
                     formItemList.push(SWITCH)
 
                 } else if (item.type === 'RANGEPICKER') {
-                    const RANGEPICKER = <FormItem label={label} key={field}>
-                        {getFieldDecorator([field], {
-                            rules: rules,
-                            initialValue: [moment(initialValue[0], dateFormat), moment(initialValue[1], dateFormat)]
-                        })(<RangePicker
-                            placeholder={placeholder}
-                            style={{ width: width }}
-                            format={dateFormat}
-                        />)}
+                    const RANGEPICKER = <FormItem {...itemConfig}>
+                        {getFieldDecorator([field], { ...fieldCheck })(
+                            <RangePicker {...propsConfig} />
+                        )}
                     </FormItem>
                     formItemList.push(RANGEPICKER)
                 } else if (item.type === 'TEXTAREA') {
-                    const TEXTAREA = <FormItem label={label} key={field}>
-                        {
-                            getFieldDecorator([field], {
-                                initialValue: initialValue,
-                                rules: rules,
-                            })(
-                                <TextArea
-                                    style={{ width: width }}
-                                    placeholder={placeholder}
-                                    allowClear={allowClear}
-                                    autoSize={autoSize}
-                                />
-                            )
-                        }
+                    const TEXTAREA = <FormItem {...itemConfig}>
+                        {getFieldDecorator([field], { ...fieldCheck })(
+                            <TextArea {...propsConfig} />
+                        )}
                     </FormItem>
                     formItemList.push(TEXTAREA)
                 } else if (item.type === 'UPLOAD') {
-                    const UPLOAD = <FormItem label={label} extra={extra}>
-                        {getFieldDecorator([field], {
-                            valuePropName: 'fileList',
-                            getValueFromEvent: this.normFile,
-                            rules: rules
-                        })(
-                            <Upload
-                                width={width}
-                                name={field}
-                                action={action}
-                                accept={accept}
-                                multiple={multiple}
-                                listType={listType}>
+                    const UPLOAD = <FormItem {...itemConfig}>
+                        {getFieldDecorator([field], {...fieldCheck})(
+                            <Upload {...propsConfig}>
                                 <Button>
                                     <Icon type="upload" />{uploadTitle}
                                 </Button>
@@ -180,24 +123,14 @@ class BaseForm extends Component {
                     </FormItem>
                     formItemList.push(UPLOAD)
                 } else if (item.type === 'DRAGGER') {
-                    const DRAGGER = <FormItem label={label} extra={extra}>
-                        {getFieldDecorator([field], {
-                            valuePropName: 'fileList',
-                            getValueFromEvent: this.normFile,
-                        })(
-                            <UploadDragger
-                                width={width}
-                                name={field}
-                                action={action}
-                                accept={accept}
-                                multiple={multiple}
-                                listType={listType}
-                            >
+                    const DRAGGER = <FormItem {...itemConfig}>
+                         {getFieldDecorator([field], {...fieldCheck})(
+                            <UploadDragger {...propsConfig}>
                                 <p className="ant-upload-drag-icon">
                                     <Icon type="inbox" />
                                 </p>
                                 <p className="ant-upload-text">{uploadTitle}</p>
-                                <p className="ant-upload-hint">{extra}</p>
+                                <p className="ant-upload-hint">{uploadDesc}</p>
                             </UploadDragger>,
                         )}
                     </FormItem>
@@ -228,13 +161,7 @@ class BaseForm extends Component {
         }
         return group.map(item => <Radio value={item.value} key={item.value}>{item.name}</Radio>)
     }
-    normFile = e => {
-        console.log('上传事件:', e);
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e && e.fileList;
-    };
+   
     // 提交
     submitHandle = (e) => {
         e.preventDefault();
