@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 
 import { Menu, Icon } from 'antd';
 import MenuConfig from '../../config/menuConfig'
 import './index.css';
 const { SubMenu } = Menu;
 
-export default class NavLeft extends Component {
+class NavLeft extends Component {
     componentWillMount() {
         const menuTreeNode = this.renderMenu(MenuConfig)
         this.setState({
@@ -18,6 +18,11 @@ export default class NavLeft extends Component {
     renderMenu = (data) => {
         return data.map((item) => {
             if (item.children) {
+                let path = this.props.location.pathname;
+                const cItem = item.children.find(cItem => cItem.key === path)
+                if (cItem) {
+                    this.openKey = item.key// 把openKey存在this种
+                }
                 return (
                     <SubMenu key={item.key} title={
                         <span>
@@ -29,6 +34,7 @@ export default class NavLeft extends Component {
                     </SubMenu>
                 )
             }
+
             return <Menu.Item title={item.title} key={item.key}>
                 <NavLink to={item.key}>
                     <Icon type={item.icon} />
@@ -38,6 +44,7 @@ export default class NavLeft extends Component {
         })
     }
 
+
     toggleCollapsed = () => {
         this.setState({
             collapsed: !this.state.collapsed,
@@ -45,6 +52,8 @@ export default class NavLeft extends Component {
     };
 
     render() {
+        let path = this.props.location.pathname;
+        let openKey = this.openKey
         return (
             <div className="left-slide">
                 <div className="logo">
@@ -56,7 +65,9 @@ export default class NavLeft extends Component {
                     // defaultOpenKeys={['/admin/setting']}
                     mode="inline"
                     theme="dark"
-                    inlineCollapsed={this.state.collapsed}
+                    selectedKeys={[path]}
+                    defaultOpenKeys={[openKey]}
+                    // inlineCollapsed={this.state.collapsed}
                 >
                     {this.state.menuTreeNode}
                 </Menu>
@@ -64,3 +75,5 @@ export default class NavLeft extends Component {
         )
     }
 }
+
+export default withRouter(NavLeft)

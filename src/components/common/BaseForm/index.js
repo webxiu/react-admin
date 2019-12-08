@@ -6,7 +6,7 @@ const Option = Select.Option
 const CheckboxGroup = Checkbox.Group
 const RadioGroup = Radio.Group
 const { TextArea } = Input;
-const { MonthPicker, RangePicker } = DatePicker;
+const { RangePicker } = DatePicker;
 const UploadDragger = Upload.Dragger;
 
 class BaseForm extends Component {
@@ -91,7 +91,7 @@ class BaseForm extends Component {
                     formItemList.push(TEXTAREA)
                 } else if (item.type === 'UPLOAD') {
                     const UPLOAD = <FormItem {...itemConfig}>
-                        {getFieldDecorator([field], {...fieldCheck})(
+                        {getFieldDecorator([field], { ...fieldCheck })(
                             <Upload {...propsConfig}>
                                 <Button>
                                     <Icon type="upload" />{uploadTitle}
@@ -102,7 +102,7 @@ class BaseForm extends Component {
                     formItemList.push(UPLOAD)
                 } else if (item.type === 'DRAGGER') {
                     const DRAGGER = <FormItem {...itemConfig}>
-                         {getFieldDecorator([field], {...fieldCheck})(
+                        {getFieldDecorator([field], { ...fieldCheck })(
                             <UploadDragger {...propsConfig}>
                                 <p className="ant-upload-drag-icon">
                                     <Icon type="inbox" />
@@ -139,7 +139,7 @@ class BaseForm extends Component {
         }
         return group.map(item => <Radio value={item.value} key={item.value}>{item.name}</Radio>)
     }
-   
+
     // 提交
     submitHandle = (e) => {
         e.preventDefault();

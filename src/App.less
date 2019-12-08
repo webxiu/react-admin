@@ -1,32 +1,7 @@
-@import '~antd/dist/antd.css';
-
-.container {
-  position: relative;
-  .nav-left {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100%;
-    overflow: auto;
-
-    /* 侧边栏滚动条 */
-    &::-webkit-scrollbar {
-      width: 0px;
-    }
-  }
-
-  .main {
-    background: #fff;
-    overflow: auto;
-    .content {
-      min-height: calc(100vh - 39px);
-      height: calc(100% - 39px);
-      padding: 15px 15px 60px;
-
-    }
-  }
+// @import '~antd/dist/antd.css';//引入的是全部的样式, 使用config-overrides配置实现了自动引入相应的css
+.APP{
+  height: 100%;
 }
-
 
 /* 自定义全局滚动条 */
 ::-webkit-scrollbar {

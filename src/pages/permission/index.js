@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Tree,Button } from "antd";
+import { Tree, Button } from "antd";
 import menuConfig from "../../config/menuConfig";
 const { TreeNode } = Tree;
 export default class Permission extends Component {
@@ -19,8 +19,7 @@ export default class Permission extends Component {
                 return <TreeNode title={item.title} key={item.key}>
                     {this.getTreeNodes(item.children)}
                 </TreeNode>
-            } {
-
+            } else {
                 return <TreeNode {...item} />
             }
         })

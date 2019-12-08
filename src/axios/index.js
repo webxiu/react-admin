@@ -11,9 +11,9 @@ export default class Axios {
             Jsonp(options.url, {
                 params: 'callback',
                 timeout: 0,
-                prefix:'__jp'
+                prefix: '__jp'
             }, (err, res) => {
-                console.log(99999,err, res);
+                console.log(99999, err, res);
 
                 // if (res) {
                 //     resolve(res)
@@ -27,14 +27,20 @@ export default class Axios {
     static ajax(options) {
         let loading = document.getElementById('ajaxLoading')
         let env = process.env.NODE_ENV
-        let baseApi = env === 'development' ? 'http:www.baidu.com' : 'http:www.taobao.com'
+        let baseApi = env === 'development' ? 'http://www.xiuhai.net/admin' : 'http:www.taobao.com'
         console.log('当前环境:', env, baseApi);
 
         if (options.params && options.params.showLoading !== false) {
             loading.style.display = 'block'
         }
 
-
+        const loadingDialog = (option) => {
+            setTimeout(() => {
+                if (option.showLoading && option.showLoading !== false) {
+                    loading.style.display = 'none'
+                }
+            }, 3000)
+        }
         return new Promise((resolve, reject) => {
             axios({
                 url: options.url,
@@ -44,32 +50,30 @@ export default class Axios {
                 params: options.param
             }).then(res => {
                 if (res.status === 200) {
-                    if (res.code === 0) {
-                        resolve(res)
+                    if (res.status === 200) {
+                        resolve(res.data)
                     } else {
                         Modal.info({
                             title: '提示',
                             content: res.msg
                         })
                     }
-                    if (options.params && options.params.showLoading !== false) {
-                        loading.style.display = 'none'
-                    }
+                    // 隐藏加载
+                    loadingDialog(options.params);
                 } else {
-                    if (options.params && options.params.showLoading !== false) {
-                        loading.style.display = 'none'
-                    }
+                    // 隐藏加载
+                    loadingDialog(options.params);
                     reject(res.data)
                 }
             }).catch(error => {
-                setTimeout(() => {
-                    if (options.params && options.params.showLoading !== false) {
-                        loading.style.display = 'none'
-                    }
-                }, 1000)
+                // 隐藏加载
+                loadingDialog(options.params);
             })
         })
+
+
     }
+
 }
 
 

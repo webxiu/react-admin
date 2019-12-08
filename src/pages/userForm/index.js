@@ -129,7 +129,7 @@ export default class Form extends Component {
                     // style: { width: '' },
                     checkedChildren: '开启',
                     unCheckedChildren: '关闭',
-                    // unCheckedChildren: <Icon type="close" />,
+                    prefix: <Icon type="close" />,
                 }
             },
             {// 日期框

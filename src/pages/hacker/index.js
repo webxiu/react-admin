@@ -11,7 +11,7 @@ export default class Hacker extends Component {
         const fontSize = 16
         const textColor = '#33ff33';
         const bgColor = 'rgba(0, 0, 0, .1)';
-        const columns = w / fontSize
+        // const columns = w / fontSize
         const dropUnits = [];
         // 初始化y轴坐标
         wordsArr.forEach((item, i) => { dropUnits[i] = 1 })
