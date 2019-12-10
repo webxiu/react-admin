@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from "../../axios";
-import "./index.css";
+import "./index.less";
 import memoryInfo from '../../utils/memoryInfo';
 
 export default class Header extends Component {

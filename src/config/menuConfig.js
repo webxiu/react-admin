@@ -8,7 +8,7 @@ const menuList = [
         icon: 'desktop'
     },
     {
-        title: 'UI',
+        title: '组件',
         key: '/ui',
         icon: 'pie-chart',
         children: [

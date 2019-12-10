@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Carousel } from 'antd'
-import './index.css'
+import './index.less'
 export default class Banner extends Component {
     render() {
         return (

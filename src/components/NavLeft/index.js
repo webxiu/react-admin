@@ -3,7 +3,7 @@ import { NavLink, withRouter } from "react-router-dom";
 
 import { Menu, Icon } from 'antd';
 import MenuConfig from '../../config/menuConfig'
-import './index.css';
+import './index.less';
 const { SubMenu } = Menu;
 
 class NavLeft extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { HashRouter, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import App from "./App";
 import Login from "./pages/login";
 import Admin from "./Admin"
@@ -19,7 +19,7 @@ import Nomatch from "./pages/nomatch"
 export default class IRouter extends Component {
     render() {
         return (
-            <HashRouter>
+            <BrowserRouter>
                 <App>
                     <Switch>
                         <Route path="/login" component={Login} />
@@ -43,7 +43,7 @@ export default class IRouter extends Component {
                         } />
                     </Switch>
                 </App>
-            </HashRouter>
+            </BrowserRouter>
         )
     }
 }

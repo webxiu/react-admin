@@ -24,18 +24,44 @@ export default class NavLeft extends Component {
                             <span>{item.title}</span>
                         </span>
                     }>
-                        { this.renderMenu(item.children) }
+                        {this.renderMenu(item.children)}
                     </SubMenu>
                 )
             }
             return <Menu.Item title={item.title} key={item.key}>
                 <NavLink to={item.key}>
                     <Icon type={item.icon} />
-                    <span> {item.title}</span>  
+                    <span> {item.title}</span>
                 </NavLink>
             </Menu.Item>
         })
     }
+    // 菜单渲染_reduce, Navlink可以换成Link
+    // renderMenu = (data) => {
+    //     return data.reduce((pre, item) => {
+    //         if (item.children) {
+    //             pre.push((
+    //                 <SubMenu key={item.key} title={
+    //                     <span>
+    //                         <Icon type={item.icon} />
+    //                         <span>{item.title}</span>
+    //                     </span>
+    //                 }>
+    //                     {this.renderMenu(item.children)}
+    //                 </SubMenu>
+    //             ))
+    //         }
+    //         pre.push((
+    //             <Menu.Item title={item.title} key={item.key}>
+    //                 <NavLink to={item.key}>
+    //                     <Icon type={item.icon} />
+    //                     <span> {item.title}</span>
+    //                 </NavLink>
+    //             </Menu.Item>
+    //         ))
+    //         return pre
+    //     }, [])
+    // }
     handleClick = () => {
 
     }
@@ -47,7 +73,7 @@ export default class NavLeft extends Component {
                     <h1>Admin System</h1>
                 </div>
                 <Menu onClick={this.handleClick} mode="vertical" theme="dark">
-                    { this.state.menuTreeNode }
+                    {this.state.menuTreeNode}
                 </Menu>
             </div>
         )
