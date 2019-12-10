@@ -4,19 +4,23 @@ import "./index.less";
 import memoryInfo from '../../utils/memoryInfo';
 
 export default class Header extends Component {
-    componentDidMount(){
+    state = {
+        city:''
+    }
+    componentDidMount() {
         this.getData()
     }
-    getData(){
-        const url = 'https://enigmatic-island-47099.herokuapp.com/api/profiles/homepage';
+    getData() {
+        const url = 'http://api.map.baidu.com/reverse_geocoding/v3/?ak=vGTZDfGlspDOWumrAHKvBBhk7ZKWOBD1&output=json&coordtype=wgs84ll&location=31.225696,121.49884';
         axios.jsonp({
-            url:url
+            url: url
         }).then(res => {
-            console.log(res);
-            
-        }).catch(error=>{
+            let { city } = res.result.addressComponent
+            this.setState({city})
+            // console.log('header天气==',city);
+        }).catch(error => {
             console.log(556565);
-            
+
         })
     }
     render() {
@@ -24,7 +28,7 @@ export default class Header extends Component {
         return (
             <div className="header-box">
                 <div className="header-left">首页 / 系统设置</div>
-                <div className="header-right">欢迎您, <span>{user.username}</span></div>
+                <div className="header-right">{this.state.city} = 欢迎您, <span>{user.username}</span></div>
             </div>
         )
     }

@@ -1,7 +1,7 @@
 
 import Jsonp from "jsonp";
 import axios from "axios";
-import { Modal } from "antd";
+import { Modal, message } from "antd";
 
 export default class Axios {
     static jsonp(options) {
@@ -13,13 +13,13 @@ export default class Axios {
                 timeout: 0,
                 prefix: '__jp'
             }, (err, res) => {
-                console.log(99999, err, res);
-
-                // if (res) {
-                //     resolve(res)
-                // } else {
-                //     reject(res)
-                // }
+                // console.log('jsonp', err, res);
+                if (res && res.status === 0) {
+                    resolve(res)
+                } else {
+                    reject(res)
+                    message.error('获取天气失败')
+                }
             })
         })
     }

@@ -50,7 +50,7 @@ export default class TableList extends Component {
                 showLoading: true
             },
         }).then(res => {
-            console.log(777, res);
+            console.log('表格', res);
             res.data.forEach(item => { item['key'] = item.w_id })
             this.setState({
                 dataSource: res.data,
