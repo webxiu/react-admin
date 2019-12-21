@@ -10,6 +10,7 @@ import Hacker from "./pages/hacker"
 import Table from "./pages/table"
 import UserForm from "./pages/userForm"
 import Permission from "./pages/permission"
+import Role from "./pages/role"
 import Nomatch from "./pages/nomatch"
 
 /**
@@ -37,6 +38,7 @@ export default class IRouter extends Component {
                                     <Route path="/table" component={Table} />
                                     <Route path="/form" component={UserForm} />
                                     <Route path="/permission" component={Permission} />
+                                    <Route path="/role" component={Role} />
                                     <Route component={Nomatch} />
                                 </Switch>
                             </Admin>

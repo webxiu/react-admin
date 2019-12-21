@@ -68,6 +68,11 @@ const menuList = [
         icon: 'inbox'
     },
     {
+        title: '角色管理',
+        key: '/role',
+        icon: 'inbox'
+    },
+    {
         title: '消息列表',
         key: '/notice',
         icon: 'desktop'

@@ -27,7 +27,7 @@ export default class Axios {
     static ajax(options) {
         let loading = document.getElementById('ajaxLoading')
         let env = process.env.NODE_ENV
-        let baseApi = env === 'development' ? 'http://www.xiuhai.net/admin' : 'http:www.taobao.com'
+        let baseApi = env === 'development' ? 'http://localhost' : 'http://www.xiuhai.net/admin'
         console.log('当前环境:', env, baseApi);
 
         if (options.params && options.params.showLoading !== false) {
