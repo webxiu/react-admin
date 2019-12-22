@@ -6,7 +6,12 @@
 import { combineReducers } from 'redux';
 // 引入本地存储
 import userInfo from '../utils/userInfo';
-import { SET_HEAD_TITLE, SET_USER } from './action-type';
+import { 
+    SET_HEAD_TITLE, 
+    LOGIN_INFO, 
+    SHOW_ERROR_MSG, 
+    RESET_USER 
+} from './action-type';
 
 
 // 用来管理头部标题的reducer
@@ -24,10 +29,15 @@ function headTitle(state = initHeadTitle, action) {
 const initUser = userInfo.getUser()
 function user(state = initUser, action) {
     switch (action.type) {
-        // case value:
-
-        //     break;
-
+        case LOGIN_INFO:
+            // 注意actions.js的叫loginData这里就必须一致
+            return action.loginData 
+        case SHOW_ERROR_MSG:
+            const errorMsg = action.errorMsg
+            // state.errorMsg = errorMsg // 极不推荐这种直接修改原数据的方式
+            return { ...state, errorMsg }
+        case RESET_USER:
+            return {} // 返回空对象
         default:
             return state
     }

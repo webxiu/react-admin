@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Modal } from 'antd';
+// import userInfo from '../../utils/userInfo';
+import { logout } from '../../redux/actions';
+
 import axios from "../../axios";
 import "./index.less";
-import memoryInfo from '../../utils/memoryInfo';
 
 class Header extends Component {
     state = {
@@ -25,13 +28,28 @@ class Header extends Component {
 
         })
     }
+    logout = () => {
+        Modal.confirm({
+            content: '确定要退出吗?',
+            onOk: ()=>{
+                // userInfo.removeUser()
+                // this.props.history.replace('/login')
+                // 使用分发操作
+                this.props.logout()
+            }
+        })
+    }
     render() {
-        let user = memoryInfo.user
         let title = this.props.headTitle
+        let user = this.props.user
         return (
             <div className="header-box">
                 <div className="header-left">位置 / {title}</div>
-                <div className="header-right">{this.state.city} = 欢迎您, <span>{user.username}</span></div>
+                <div className="header-right">
+                    {this.state.city} = 欢迎您,
+                    <span>{user.username}</span>
+                    <span onClick={this.logout}>[退出]</span>
+                </div>
             </div>
         )
     }
@@ -39,8 +57,9 @@ class Header extends Component {
 
 export default connect(
     state => ({ // 第一个单数传属性
-        headTitle: state.headTitle
+        headTitle: state.headTitle,
+        user: state.user
     }),
-    {} // 第二个参数传方法
+    {logout} // 第二个参数传方法
 )(withRouter(Header))
 

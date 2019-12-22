@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Table, Card, Button, Modal, Form,Input } from "antd";
+import { Table, Card, Button, Modal, Form, Input } from "antd";
 import axios from "../../axios";
+import { reqRole } from '../../api';
 // import Utils from "../../utils/common";
 
 class Role extends Component {
@@ -47,14 +48,7 @@ class Role extends Component {
         ];
     }
     reqTableList = () => {
-        axios.ajax({
-            url: 'api/role.php',
-            method: 'get',
-            params: {
-                // params: { page: _this.params.page, page_size: 10 },
-                showLoading: true
-            },
-        }).then(res => {
+        reqRole({ showLoading: true }).then(res => {
             res.data.forEach(item => { item['key'] = item.id })
             this.setState({
                 roles: res.data,
@@ -134,4 +128,4 @@ class Role extends Component {
     }
 }
 
-export default Form.create( )(Role)
+export default Form.create()(Role)

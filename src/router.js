@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import App from "./App";
 import Login from "./pages/login";
-import Admin from "./Admin"
+import Admin from "./pages/admin/admin"
 import Home from "./pages/home"
 import Button from "./pages/ui/button"
 import Banner from "./pages/ui/banner"

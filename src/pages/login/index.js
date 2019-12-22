@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Card, Form, Icon, Input, Button, Checkbox, message } from 'antd';
 import './index.less';
-import userInfo from '../../utils/userInfo';
-import memoryInfo from '../../utils/memoryInfo';
+import { login } from '../../redux/actions';
 const FormItem = Form.Item
 
 class Login extends Component {
@@ -19,19 +20,32 @@ class Login extends Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('验证参数: ', values);
-
-                message.success('成功')
-                const user = values
-                memoryInfo.user = user  // 保存在内存中
-                userInfo.saveUser(user) // 本地存储
+                const { username, password } = values
+                this.props.login(username, password) // 异步action登录请求
+                // const user = values
+                // userInfo.saveUser(user) // 本地存储
                 // this.props.history.push('/')
-                this.props.history.replace('/')
+                // this.props.history.replace('/')
+
+
             }
         })
     };
 
     render() {
         const { getFieldDecorator } = this.props.form;
+        const user = this.props.user
+        console.log(888888888,user,user.username);
+        
+        // const errorMsg = this.props.username.errorMsg
+        if (user.username) {
+            return <Redirect to='/' />
+        }
+
+        // if (username && username.errorMsg) {
+        //     message.error(errorMsg)
+        // }
+
         // 表单内容配置
         const formData = {
             formConfig: {
@@ -131,4 +145,8 @@ class Login extends Component {
         )
     }
 }
-export default Form.create({ name: 'normal_login' })(Login);
+const wrapLogin = Form.create({ name: 'normal_login' })(Login);
+export default connect(
+    state => ({ user: state.user }),
+    { login } // actions里面的login登录函数
+)(wrapLogin)

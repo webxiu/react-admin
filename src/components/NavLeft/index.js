@@ -20,30 +20,29 @@ class NavLeft extends Component {
     // 菜单渲染
     renderMenu = (data) => {
         let path = this.props.location.pathname;
-        return data.reduce((pre, item) => {
+        return data.map((item) => {
             if (item.children) {
                 const cItem = item.children.find(cItem => cItem.key === path)
                 if (cItem) {
                     this.openKey = item.key// 把openKey存在this种
                 }
-                pre.push((
-                    <SubMenu key={item.key} title={
-                        <span>
-                            <Icon type={item.icon} />
-                            <span>{item.title}</span>
-                        </span>
-                    }>
-                        {this.renderMenu(item.children)}
-                    </SubMenu>
-                ))
+                return (<SubMenu key={item.key} title={
+                    <span>
+                        <Icon type={item.icon} />
+                        <span>{item.title}</span>
+                    </span>
+                }>
+                    {this.renderMenu(item.children)}
+                </SubMenu>
+                )
             }
             // 判断item是否是当前对应的item
             // if (item.key === path || path.indexOf(item.key) ===0) { //存在二季子路由判断
-            if (item.key === path ) {
+            if (item.key === path) {
                 // 更新redux种的headTitle标题
                 this.props.setHeadTitle(item.title)
             }
-            pre.push((<Menu.Item title={item.title} key={item.key}>
+            return <Menu.Item title={item.title} key={item.key}>
                 <NavLink to={item.key} onClick={() => this.props.setHeadTitle(item.title)} >
                     <Icon type={item.icon} />
                     <span> {item.title}</span>
@@ -52,9 +51,8 @@ class NavLeft extends Component {
                     <Icon type={item.icon} />
                     <span> {item.title}</span>
                 </Link> */}
-            </Menu.Item>))
-            return pre
-        }, [])
+            </Menu.Item>
+        })
     }
 
 

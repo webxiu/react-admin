@@ -2,16 +2,17 @@ import React, { Component } from 'react'
 // import { Row, Col } from 'antd';
 import { Layout } from 'antd';
 import { Redirect } from 'react-router-dom';
-import Header from './components/Header';
-import NavLeft from './components/NavLeft';
-import Footer from './components/Footer';
-import memoryInfo from './utils/memoryInfo';
-import "./style/common.css";
+import { connect} from 'react-redux';
+
+import Header from '../../components/Header';
+import NavLeft from '../../components/NavLeft';
+import Footer from '../../components/Footer';
+import "../../style/common.css";
 const { Sider, Content } = Layout;
 
-export default class Admin extends Component {
+class Admin extends Component {
     render() {
-        let user = memoryInfo.user
+        let user = this.props.user
         if(!user.username){
             return <Redirect to="/login" />
         }
@@ -46,3 +47,9 @@ export default class Admin extends Component {
         )
     }
 }
+
+
+export default connect(
+    state => ({user: state.user}),
+    {}
+)(Admin)
