@@ -86,6 +86,9 @@ class Role extends Component {
             // type: 'checkbox',
             type: 'radio',
             selectedRowKeys: [role.id],
+            onSelect: (role) => { // 选择某个radio时回调
+                this.setState({ role })
+            },
             onChange: (selectedRowKeys, selectedRows) => {
                 console.log(`选择框: ${selectedRowKeys}`, '==selectedRows: ', selectedRows);
             }

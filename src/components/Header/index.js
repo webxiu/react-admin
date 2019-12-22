@@ -46,9 +46,9 @@ class Header extends Component {
             <div className="header-box">
                 <div className="header-left">位置 / {title}</div>
                 <div className="header-right">
-                    {this.state.city} = 欢迎您,
-                    <span>{user.username}</span>
-                    <span onClick={this.logout}>[退出]</span>
+                    {this.state.city}&nbsp; 欢迎您,&nbsp;
+                    <span>{user.username}</span>&nbsp;&nbsp;
+                    <span style={{cursor: 'pointer'}} onClick={this.logout}>[退出]</span>
                 </div>
             </div>
         )
