@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Form, Icon, Input, Button, Checkbox, message } from 'antd';
+import { Card, Form, Icon, Input, Button, Checkbox } from 'antd';
 import './index.less';
 import { login } from '../../redux/actions';
 const FormItem = Form.Item
@@ -12,6 +12,12 @@ class Login extends Component {
         formWidth: '400px',
         adminTitle: 'Hailen后台管理系统',
         contact: 'http://wpa.qq.com/msgrd?v=3&uin=759430324&site=qq&menu=yes'
+    }
+
+    keyUpSubmit = (e) => {
+        if (e.keyCode === 13) {
+            this.handleSubmit(e)
+        }
     }
 
     handleSubmit = e => {
@@ -35,8 +41,8 @@ class Login extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         const user = this.props.user
-        console.log(888888888,user,user.username);
-        
+        console.log('是否登录:', user, user.username);
+
         // const errorMsg = this.props.username.errorMsg
         if (user.username) {
             return <Redirect to='/' />
@@ -70,6 +76,7 @@ class Login extends Component {
                         type: 'text',
                         allowClear: true,
                         placeholder: '请输入用户名',
+                        onKeyUp: this.keyUpSubmit,
                         prefix: <Icon type="user" />,
                     }
                 },
@@ -88,6 +95,7 @@ class Login extends Component {
                         type: 'password',
                         allowClear: true,
                         placeholder: '请输入密码',
+                        onKeyUp: this.keyUpSubmit,
                         prefix: <Icon type="lock" />,
                     }
                 },

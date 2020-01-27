@@ -103,7 +103,7 @@ export default class Axios {
             console.log('err' + error) // for debug
             Modal.info({
                 title: '提示',
-                content: error.msg
+                content: error.msg || '网络错误'
             })
             loadingDialog(false)
             return Promise.reject(error)

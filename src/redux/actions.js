@@ -38,7 +38,7 @@ export const login = (username, password) => {
                 dispatch(loginInfo(userObj)) // 分发接收用户的同步action
             } else {
                 const msg = res.msg;
-                // message.error(msg) // 简单方式
+                message.error(msg) // 简单方式
                 dispatch(showErrorMsg(msg)) // 分发出去
             }
 

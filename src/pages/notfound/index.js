@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Error extends Component {
+export default class NotFound extends Component {
     render() {
         return (
             <div style={{textAlign:'center',fontSize:'24'}}>

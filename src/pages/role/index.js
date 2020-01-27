@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Table, Card, Button, Modal, Form, Input } from "antd";
-import axios from "../../axios";
+// import axios from "../../axios";
 import { reqRole } from '../../api';
 // import Utils from "../../utils/common";
 

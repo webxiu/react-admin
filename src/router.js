@@ -11,7 +11,7 @@ import Table from "./pages/table"
 import UserForm from "./pages/userForm"
 import Permission from "./pages/permission"
 import Role from "./pages/role"
-import Nomatch from "./pages/nomatch"
+import NotFound from "./pages/notfound"
 
 /**
  * 改造后的路由, 去掉/admin前缀,
@@ -30,7 +30,7 @@ export default class IRouter extends Component {
                             <Admin>
                                 <Switch>
                                     {/* <Route path="/ui/:id" component={Button} /> */}
-                                    <Redirect from="/" to="/home" exact={true} />
+                                    <Redirect exact={true} from="/" to="/home"  />
                                     <Route path="/home" component={Home} />
                                     <Route path="/ui/button" component={Button} />
                                     <Route path="/ui/banner" component={Banner} />
@@ -39,7 +39,7 @@ export default class IRouter extends Component {
                                     <Route path="/form" component={UserForm} />
                                     <Route path="/permission" component={Permission} />
                                     <Route path="/role" component={Role} />
-                                    <Route component={Nomatch} />
+                                    <Route component={NotFound} />
                                 </Switch>
                             </Admin>
                         } />
