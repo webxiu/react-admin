@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import { Row, Col } from 'antd';
 import { Layout } from 'antd';
 import { Redirect } from 'react-router-dom';
-import { connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Header from '../../components/Header';
 import NavLeft from '../../components/NavLeft';
@@ -13,7 +13,7 @@ const { Sider, Content } = Layout;
 class Admin extends Component {
     render() {
         let user = this.props.user
-        if(!user.username){
+        if (!user.username) {
             return <Redirect to="/login" />
         }
         return (
@@ -32,16 +32,18 @@ class Admin extends Component {
             //     </Col>
             // </Row>
 
-            <Layout style={{height: '100%'}}>
+            <Layout style={{ height: '100%' }}>
                 <Sider>
                     <NavLeft />
                 </Sider>
                 <Layout>
                     <Header></Header>
-                    <Content>
-                        {this.props.children}
+                    <Content style={{ position: 'relative' }}>
+                        <div style={{ minHeight: 'calc(100% - 60px)' }}>
+                            {this.props.children}
+                        </div>
+                        <Footer></Footer>
                     </Content>
-                    <Footer></Footer>
                 </Layout>
             </Layout>
         )
@@ -50,6 +52,6 @@ class Admin extends Component {
 
 
 export default connect(
-    state => ({user: state.user}),
+    state => ({ user: state.user }),
     {}
 )(Admin)

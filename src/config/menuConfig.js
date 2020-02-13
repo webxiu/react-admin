@@ -27,6 +27,11 @@ const menuList = [
                 key: '/ui/loading',
                 icon: 'appstore'
             },
+            {
+                title: '放大镜',
+                key: '/ui/scale',
+                icon: 'appstore'
+            },
         ]
     },
     {

@@ -89,11 +89,7 @@ export default class Axios {
                     }, 1000)
                     message.error('token过期，请重新登录')
                 } else {
-                    message({
-                        message: res.msg || 'Error',
-                        type: 'error',
-                        duration: 5 * 1000
-                    })
+                    message.error(res.msg || 'Error')
                     loadingDialog(false)
                     throw new Error(res)
                 }

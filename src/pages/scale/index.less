@@ -1,0 +1,140 @@
+/*放大镜*/
+.new-product-tit{
+    color: #d4b9b9;
+}
+.imgShow{
+    margin: 0 auto 10px;
+
+}
+
+.imgwrap {
+    background:#fff;
+    overflow:hidden;
+    padding: 10px 10px 0 10px;
+}
+
+.imgbox {
+    height:180px;
+    width: 180px;
+    position:relative;
+    top:0;
+    left:0;
+    float:left;
+    overflow: hidden;
+}
+.imgbox img{
+    display: block;
+    height: 100%;
+    width:100%;
+}
+.imgwrap .cont {
+    position: relative;
+    margin-left: 2%;
+    height: 180px;
+    width: 68%;
+    background: #daafba;
+    float: left;
+    color: #344046;
+    padding: 10px 0 0 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.imgwrap .cont h4{
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}
+.imgwrap .cont h4 i{
+    font-style: normal;
+    margin-right: 10px;
+    background: #ff0000;
+    color: #fff;
+    padding: 1px 5px;
+    border-radius: 4px;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}
+.imgwrap .cont .priceInfo{
+    width: 97%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 1px;
+
+}
+.imgwrap .cont .tdescribe{
+    margin-top: 6px;
+}
+.imgwrap .cont .priceInfo .peopleNum{
+    margin-top: 3px;
+}
+
+.imgwrap .cont .priceInfo .freeFay{
+    font-size: 16px;
+    margin-left: 10px;
+    background: #339232;
+    color: #d6ff00;
+    padding: 0 5px;
+    border-radius: 2px;
+}
+.imgwrap .cont .priceInfo .price i{
+    font-style: normal;
+    color: #f00;
+    margin-top: 5px;
+    font-size: 18px;
+}
+.imgwrap .cont .priceBottom{
+    margin-top: 5px;
+    background: green;
+    width: 100%;
+    overflow: hidden;
+}
+
+.imgwrap .cont .lookNow{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: #f60;
+    padding: 3px 16px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/*.imgwrap .cont p{
+    padding-top: 10px;
+}*/
+.imgbox span {
+    width:60px;
+    height:60px;
+    background:yellow;
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0.5;
+    filter:alpha(opacity=50);
+}
+.mark {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    filter:alpha(opacity=0);
+    cursor:move;
+}
+.maxImgbox {
+    width:360px;
+    height:360px;
+    position:absolute;
+    left: 190px;
+    overflow:hidden;
+    border:10px solid #e5e5e5;
+    background:#fff;
+}
+.maxImgbox img {
+    position:absolute;
+    display:block
+}

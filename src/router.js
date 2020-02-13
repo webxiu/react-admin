@@ -11,6 +11,7 @@ import Table from "./pages/table"
 import UserForm from "./pages/userForm"
 import Permission from "./pages/permission"
 import Role from "./pages/role"
+import Scale from "./pages/scale"
 import NotFound from "./pages/notfound"
 
 /**
@@ -34,6 +35,7 @@ export default class IRouter extends Component {
                                     <Route path="/home" component={Home} />
                                     <Route path="/ui/button" component={Button} />
                                     <Route path="/ui/banner" component={Banner} />
+                                    <Route path="/ui/scale" component={Scale} />
                                     <Route path="/hacker" component={Hacker} />
                                     <Route path="/table" component={Table} />
                                     <Route path="/form" component={UserForm} />
