@@ -13,8 +13,13 @@ const menuList = [
         icon: 'pie-chart',
         children: [
             {
-                title: '按钮',
+                title: '生命周期',
                 key: '/ui/button',
+                icon: 'appstore'
+            },
+            {
+                title: 'context属性传递',
+                key: '/ui/context',
                 icon: 'appstore'
             },
             {

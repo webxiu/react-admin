@@ -28,7 +28,7 @@ export default class Axios {
         // inde.html加载元素获取
         let loading = document.getElementById('ajaxLoading')
         // 接口baseurl
-        let baseApi = process.env.NODE_ENV === 'development' ? 'http://localhost' : 'http://www.xiuhai.net/admin'
+        let baseApi = process.env.NODE_ENV === 'development' ? 'http://localhost' : 'http://www.lixiuhai.com/admin'
         // 是否显示加载
         let showLoading = false
 

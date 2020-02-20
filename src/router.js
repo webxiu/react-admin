@@ -5,6 +5,7 @@ import Login from "./pages/login";
 import Admin from "./pages/admin/admin"
 import Home from "./pages/home"
 import Button from "./pages/ui/button"
+import Context from "./pages/ui/context"
 import Banner from "./pages/ui/banner"
 import Hacker from "./pages/hacker"
 import Table from "./pages/table"
@@ -34,6 +35,7 @@ export default class IRouter extends Component {
                                     <Redirect exact={true} from="/" to="/home"  />
                                     <Route path="/home" component={Home} />
                                     <Route path="/ui/button" component={Button} />
+                                    <Route path="/ui/Context" component={Context} />
                                     <Route path="/ui/banner" component={Banner} />
                                     <Route path="/ui/scale" component={Scale} />
                                     <Route path="/hacker" component={Hacker} />
