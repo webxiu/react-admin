@@ -23,7 +23,6 @@ export default class Buttons extends Component {
     componentDidMount() {
         console.log('componentDidMount--5');
     }
-
     shouldComponentUpdate(nextProps, nextState) {
         console.log('shouldComponentUpdate--11');
         // console.log(nextProps, nextState.num);
@@ -39,10 +38,11 @@ export default class Buttons extends Component {
 
     // 方法
     add = () => {
+        let num = this.state.num
         console.log('点击获取状态', this.state.num);
         console.log('点击获取属性', this.props.abc);
         this.setState({
-            num: ++this.state.num
+            num: ++num
         })
     }
     render() {
@@ -64,6 +64,8 @@ class Son extends Component {
         super(props)
         this.state = {}
     }
+
+    // 监听函数
     componentWillReceiveProps(nextProps) {
         console.log(`componentWillReceiveProps--旧数据:${this.props.num},新数据:${nextProps.num}`);
     }

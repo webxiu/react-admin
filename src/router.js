@@ -7,6 +7,7 @@ import Home from "./pages/home"
 import Button from "./pages/ui/button"
 import Context from "./pages/ui/context"
 import Banner from "./pages/ui/banner"
+import Upload from "./pages/ui/upload"
 import Hacker from "./pages/hacker"
 import Table from "./pages/table"
 import UserForm from "./pages/userForm"
@@ -37,6 +38,7 @@ export default class IRouter extends Component {
                                     <Route path="/ui/button" component={Button} />
                                     <Route path="/ui/Context" component={Context} />
                                     <Route path="/ui/banner" component={Banner} />
+                                    <Route path="/ui/upload" component={Upload} />
                                     <Route path="/ui/scale" component={Scale} />
                                     <Route path="/hacker" component={Hacker} />
                                     <Route path="/table" component={Table} />

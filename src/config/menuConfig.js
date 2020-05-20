@@ -28,8 +28,8 @@ const menuList = [
                 icon: 'desktop'
             },
             {
-                title: 'Loading',
-                key: '/ui/loading',
+                title: '上传',
+                key: '/ui/upload',
                 icon: 'appstore'
             },
             {
